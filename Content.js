@@ -1,13 +1,11 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Grid, Card, CardContent, Typography, Box, Button, Avatar } from "@mui/material";
+import { Grid, Card, Typography, Box, Button } from "@mui/material";
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EditIcon from "@mui/icons-material/Edit";
-import { Link } from "@mui/material";
-
+import { Select, MenuItem } from "@mui/material";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -71,6 +69,11 @@ const Dashboard = () => {
         <Grid item xs={12} md={4}>
           <Card sx={{ p: 2 }}>
             <Typography variant="body2">Messaging Sent</Typography>
+            <Select defaultValue="this-week">
+                  <MenuItem value="this-week">This Week</MenuItem>
+                  <MenuItem value="last-week">Last Week</MenuItem>
+                  <MenuItem value="this-month">This Month</MenuItem>
+            </Select>
             <Box sx={{ display: "flex", alignItems: "center", mt: 2 }}>
               <ResponsiveContainer width="50%" height={80}>
                 <PieChart>
@@ -121,6 +124,11 @@ const Dashboard = () => {
         <Grid item xs={12}>
           <Card sx={{ p: 2 }}>
             <Typography variant="h6">Broadcast Overview</Typography>
+            <Select defaultValue="last-7-days">
+              <MenuItem value="last-7-days">Last 7 Days</MenuItem>
+              <MenuItem value="last-30-days">Last 30 Days</MenuItem>
+              <MenuItem value="last-90-days">Last 90 Days</MenuItem>
+            </Select>
             <Grid container spacing={2} mt={1}>
               {["Recipients", "Sent", "Delivered", "Read", "Replied", "Clicks"].map((label, index) => (
                 <Grid item xs={6} md={2} key={index}>
@@ -138,6 +146,11 @@ const Dashboard = () => {
         <Grid item xs={12}>
           <Card sx={{ p: 2 }}>
             <Typography variant="h6">Conversation Summary</Typography>
+            <Select defaultValue="last-7-days">
+              <MenuItem value="last-7-days">Last 7 Days</MenuItem>
+              <MenuItem value="last-30-days">Last 30 Days</MenuItem>
+              <MenuItem value="last-90-days">Last 90 Days</MenuItem>
+            </Select>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={barData}>
                 <XAxis dataKey="date" />
