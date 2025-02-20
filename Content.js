@@ -1,11 +1,10 @@
 import React from "react";
-import { Grid, Card, Typography, Box, Button } from "@mui/material";
+import { Grid, Card, Typography, Box, Button, Select, MenuItem } from "@mui/material";
 import { PieChart, Pie, Cell, ResponsiveContainer, BarChart, Bar, XAxis, YAxis, Tooltip } from "recharts";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import AccountBalanceWalletIcon from "@mui/icons-material/AccountBalanceWallet";
 import EditIcon from "@mui/icons-material/Edit";
-import { Select, MenuItem } from "@mui/material";
 
 const Dashboard = () => {
   const theme = useTheme();
@@ -118,7 +117,7 @@ const Dashboard = () => {
             rel="noopener noreferrer"> Read more
             </Button>
           </Card>
-        </Grid>6
+        </Grid>
 
         {/* Broadcast Overview */}
         <Grid item xs={12}>
